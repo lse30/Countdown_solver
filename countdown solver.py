@@ -100,15 +100,38 @@ def solver(numbers, target):
                 i += 1
 
 
+"""This is the first attempt at making code that can generate every possible way of adding, subtracting
+multiplying and dividing numbers in attempt to find the target number
+it does not work for all numbers because this version does not try every possible combination
+for example the list [1, 6, 2, 10, 25, 100] and target 863 will return None however the solution is 
+863 = (10-1)*100-25-(2*6)
+this is impossible to create without using brackets and therefore cannot be made in the solver
+"""
 
-answer = solver([1, 6, 2, 10, 25, 100], 864)
+"""To use"""
+"""change the target variable to your target and set the number_list variable to
+ your list of the 6 numbers that are given
+NOTE the show allows for duplicate numbers and so does the solver
+an example is shown below
+target = 864
+number_list = [1, 6, 2, 10, 25, 100]
+"""
+
+target = 864
+number_list = [1, 6, 2, 10, 25, 100]
+
+answer = solver(number_list, target)
 print(answer)
 
-def mult(x, y):
-    return x * y
-ops = {
-    '*': mult
-}
+"""the number is printed followed by the order of operations"""
+"""DO NOT APPLY BEDMAS, 
+    Simply read the inputs from left to right:
+    EXAMPLE: 864 = 2 * 10 - 1 + 25 + 100 * 6
+    implies:
+    2 * 10 = 20
+    20 - 1 = 19
+    19 + 25 = 44
+    44 + 100 = 144
+    144 * 6 = 864"""
 
-#print(ops['*'](4, 6))
 
